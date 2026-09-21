@@ -44,8 +44,8 @@ function Launch-Window($X, $Y, $LinuxCmd) {
         $LinuxCmd = "cava; echo 'Cava crashed! Press Enter to close...'; read"
     }
 
-
-    psexec -i -d C:\msys64\usr\bin\mintty.exe -o MSYSTEM=UCRT64 -B void --geometry "${w}x${h}+${X}+${Y}" /usr/bin/bash -lc "$LinuxCmd"
+    # ИСПРАВЛЕННАЯ СТРОКА: передаем MSYSTEM=UCRT64 через env в mintty
+    psexec -i -d C:\msys64\usr\bin\mintty.exe -B void --geometry "${w}x${h}+${X}+${Y}" /usr/bin/env MSYSTEM=UCRT64 /usr/bin/bash -lc "$LinuxCmd"
     Start-Sleep -Milliseconds 300
 }
 
@@ -74,4 +74,3 @@ Launch-Window 0 0 $cmdTopLeft
 Launch-Window $w 0 $cmdTopRight
 Launch-Window 0 $h $cmdBotLeft
 Launch-Window $w $h $cmdBotRight
-
