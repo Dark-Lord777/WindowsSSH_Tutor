@@ -11,6 +11,16 @@
 
 </div>
 
+
+Okey Let's go
+
+Install this
+(This utils can help you create a bridge beetween virtual space OpenSSH and UserSpace)
+RUN STRICTLY ROOT(ADMIN POWERSHELL) 
+```
+Invoke-WebRequest -Uri "https://download.sysinternals.com/files/PSTools.zip" -OutFile "$env:TEMP\PSTools.zip"; Expand-Archive -Path "$env:TEMP\PSTools.zip" -DestinationPath "C:\Windows\System32" -Force; & psexec /accepteula
+```
+
 ```
 git clone https://github.com/Dark-Lord777/FirstApp
 cd FirstApp
